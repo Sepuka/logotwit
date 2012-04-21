@@ -38,7 +38,7 @@ class Logotwit(object):
         Подписывание запросов
         """
         if status:
-            params['status'] = quote(status)
+            params['status'] = quote(status, '')
         params['oauth_consumer_key'] = self._conf.get('oauth', 'consumer_key')
         params['oauth_nonce'] = quote_plus(self._getOAuthNonce())
         params['oauth_signature_method'] = self._conf.get('oauth', 'signature_method')
