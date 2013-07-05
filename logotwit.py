@@ -38,7 +38,7 @@ class Logotwit(object):
         Подписывание запросов
         """
         if status:
-            params['status'] = quote(status)
+            params['status'] = quote(status, '')
         params['oauth_consumer_key'] = self._conf.get('oauth', 'consumer_key')
         params['oauth_nonce'] = quote_plus(self._getOAuthNonce())
         params['oauth_signature_method'] = self._conf.get('oauth', 'signature_method')
@@ -99,6 +99,7 @@ class Logotwit(object):
         path = '/1/statuses/update.json'
         HTTPmethod = 'POST'
         sign = self._OAuthHeaders({}, HTTPmethod, 'https://%s%s' % (self._APIhost, path), parameters['status'])
+        sign['Content-Type'] = 'application/x-www-form-urlencoded';#Для версии TwitterAPI 1.1
         self._conn.request(HTTPmethod, path, urlencode(parameters), sign)
         response = self._conn.getresponse()
         if response.status == httplib.OK:
