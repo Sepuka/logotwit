@@ -109,4 +109,4 @@ class Logotwit(object):
 
 if __name__ == '__main__':
     logotwit = Logotwit()
-    logotwit.update(sys.stdin.readline())
+    logotwit.update(' '.join(sys.stdin.readlines()))

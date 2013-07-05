@@ -25,4 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+<<<<<<< HEAD
 /nbproject/private/
+=======
+# vim tmp files
+*.swp
+>>>>>>> cef11caa01373e30ff22ed97faaff19aa59f79fa
